@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://ck167ib0wmj7x"]
+
+[ext_resource type="Texture2D" uid="uid://c7ud76aq66tk5" path="res://icon.svg" id="1_ytfwu"]
+[ext_resource type="Script" path="res://GMTK-2024/Player/player_movement.gd" id="2_8h1nm"]
+[ext_resource type="Script" path="res://GMTK-2024/Player/throw_held_object.gd" id="3_3j0sv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uklro"]
+radius = 30.0
+height = 124.0
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_mask = 15
+floor_snap_length = 9.7
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.46875, 1)
+texture = ExtResource("1_ytfwu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_uklro")
+
+[node name="PlayerMovement" type="Node2D" parent="."]
+script = ExtResource("2_8h1nm")
+
+[node name="ThrowHeldObject" type="Node2D" parent="."]
+script = ExtResource("3_3j0sv")

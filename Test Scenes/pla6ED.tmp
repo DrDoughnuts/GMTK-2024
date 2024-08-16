@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbvdk85vhs06h"]
+
+[ext_resource type="PackedScene" uid="uid://ddm5hrj7d0cmq" path="res://GMTK-2024/Pickables/pickable.tscn" id="1_r0qgx"]
+[ext_resource type="PackedScene" uid="uid://ck167ib0wmj7x" path="res://GMTK-2024/Player/player.tscn" id="1_vevnb"]
+[ext_resource type="Texture2D" uid="uid://c7ud76aq66tk5" path="res://icon.svg" id="2_6yx0u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vwegm"]
+size = Vector2(798.328, 100)
+
+[node name="PlatformerTest" type="Node2D"]
+
+[node name="Pickable" parent="." instance=ExtResource("1_r0qgx")]
+position = Vector2(266, 428)
+
+[node name="Pickable2" parent="." instance=ExtResource("1_r0qgx")]
+position = Vector2(175, 255)
+scale = Vector2(0.38, 0.38)
+
+[node name="Pickable3" parent="." instance=ExtResource("1_r0qgx")]
+position = Vector2(675, 225)
+scale = Vector2(-0.219998, 1.26667)
+
+[node name="Player" parent="." instance=ExtResource("1_vevnb")]
+position = Vector2(375, 247)
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(571, 593)
+scale = Vector2(7.02904, 0.841926)
+texture = ExtResource("2_6yx0u")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Icon"]
+position = Vector2(-89.8841, -715.52)
+scale = Vector2(0.15783, 1.28)
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/StaticBody2D"]
+position = Vector2(569.5, 558.219)
+shape = SubResource("RectangleShape2D_vwegm")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+position = Vector2(623, 439)
+scale = Vector2(1.52939, 1.47209)
+texture = ExtResource("2_6yx0u")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Icon2"]
+position = Vector2(-89.8841, -715.52)
+scale = Vector2(0.15783, 1.28)
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon2/StaticBody2D"]
+position = Vector2(569.5, 558.219)
+shape = SubResource("RectangleShape2D_vwegm")
+
+[node name="Icon3" type="Sprite2D" parent="."]
+position = Vector2(934, 260)
+rotation = -0.710377
+scale = Vector2(1.52939, 1.47209)
+texture = ExtResource("2_6yx0u")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Icon3"]
+position = Vector2(-89.8841, -715.52)
+scale = Vector2(0.15783, 1.28)
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon3/StaticBody2D"]
+position = Vector2(569.5, 558.219)
+shape = SubResource("RectangleShape2D_vwegm")
+
+[editable path="Pickable2"]
+[editable path="Pickable3"]

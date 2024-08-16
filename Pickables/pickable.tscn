@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddm5hrj7d0cmq"]
+
+[ext_resource type="Script" path="res://GMTK-2024/Pickables/pickable.gd" id="1_ru7p0"]
+[ext_resource type="Texture2D" uid="uid://c7ud76aq66tk5" path="res://icon.svg" id="2_ygjcx"]
+[ext_resource type="Script" path="res://GMTK-2024/Pickables/pickable_ray_cast.gd" id="3_kstcs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bkevy"]
+radius = 30.0
+
+[node name="Pickable" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 15
+input_pickable = true
+script = ExtResource("1_ru7p0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bkevy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ygjcx")
+
+[node name="PickableRayCast" type="RayCast2D" parent="."]
+target_position = Vector2(0, 0)
+collision_mask = 2
+script = ExtResource("3_kstcs")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
