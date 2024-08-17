@@ -7,7 +7,6 @@ extends Node2D
 func _process(delta: float) -> void:
 	var held_group := get_tree().get_nodes_in_group("held")
 	if Input.is_action_just_released("throw") && held_group.size() > 0:
-		print("BAZINGA")
 		var thrown : Pickable = held_group[0]
 		thrown.held = false
 		thrown.linear_velocity = Vector2(0,0)

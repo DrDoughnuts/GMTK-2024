@@ -1,0 +1,48 @@
+[gd_scene load_steps=11 format=3 uid="uid://c3bm1501oma1d"]
+
+[ext_resource type="Shader" path="res://GMTK-2024/Player/Magnet/magnet.gdshader" id="1_ucw3q"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_51vuc"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_08yis"]
+width = 4017
+noise = SubResource("FastNoiseLite_51vuc")
+
+[sub_resource type="Gradient" id="Gradient_pl7s7"]
+offsets = PackedFloat32Array(0, 0.965418)
+colors = PackedColorArray(1, 0, 1, 1, 0, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4fd6l"]
+gradient = SubResource("Gradient_pl7s7")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_418w1"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_85yae"]
+noise = SubResource("FastNoiseLite_418w1")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7t7oe"]
+shader = ExtResource("1_ucw3q")
+shader_parameter/use_color_gradient = true
+shader_parameter/color_effect_mod = 0.3
+shader_parameter/color_gradient = SubResource("GradientTexture1D_4fd6l")
+shader_parameter/intensive = 0.35
+shader_parameter/lightning_thin = 3.7
+shader_parameter/number_lightning = 5
+shader_parameter/speed = 0.672
+shader_parameter/position = 0.5
+shader_parameter/lightning_noise = SubResource("NoiseTexture2D_85yae")
+shader_parameter/background_noise = SubResource("NoiseTexture2D_08yis")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_g6tn5"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kq7qb"]
+width = 107
+height = 1
+invert = true
+noise = SubResource("FastNoiseLite_g6tn5")
+
+[node name="LigtningEffect" type="Node2D"]
+
+[node name="Material" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_7t7oe")
+texture = SubResource("NoiseTexture2D_kq7qb")

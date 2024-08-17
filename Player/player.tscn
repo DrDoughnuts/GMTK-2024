@@ -12,6 +12,8 @@ height = 124.0
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 15
 floor_stop_on_slope = false
+floor_constant_speed = true
+floor_max_angle = 1.0472
 floor_snap_length = 9.7
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
