@@ -8,7 +8,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var player = get_tree().get_nodes_in_group("player")[0]
 	target_position = player.global_position - global_position
 	

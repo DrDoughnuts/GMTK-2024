@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://ck167ib0wmj7x"]
+[gd_scene load_steps=9 format=3 uid="uid://ck167ib0wmj7x"]
 
 [ext_resource type="Texture2D" uid="uid://c7ud76aq66tk5" path="res://icon.svg" id="1_ytfwu"]
 [ext_resource type="Script" path="res://GMTK-2024/Player/player_movement.gd" id="2_8h1nm"]
 [ext_resource type="Script" path="res://GMTK-2024/Player/throw_held_object.gd" id="3_3j0sv"]
 [ext_resource type="Script" path="res://GMTK-2024/Player/camera_follow.gd" id="4_fupu2"]
+[ext_resource type="AudioStream" uid="uid://dnp0ovta5woq" path="res://GMTK-2024/Player/Magnet/sfx_manget_release.wav" id="4_yruva"]
+[ext_resource type="AudioStream" uid="uid://bhws1r37budme" path="res://GMTK-2024/Player/Magnet/sfx_magnet_deactivate.wav" id="5_ghbhu"]
+[ext_resource type="AudioStream" uid="uid://dshuerbdn53ot" path="res://GMTK-2024/Player/Magnet/sfx_magnet_fail.mp3" id="6_dly2c"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uklro"]
 radius = 30.0
@@ -28,6 +31,17 @@ script = ExtResource("2_8h1nm")
 
 [node name="ThrowHeldObject" type="Node2D" parent="."]
 script = ExtResource("3_3j0sv")
+
+[node name="SfxRelease" type="AudioStreamPlayer2D" parent="ThrowHeldObject"]
+stream = ExtResource("4_yruva")
+
+[node name="SfxDeactivate" type="AudioStreamPlayer2D" parent="ThrowHeldObject"]
+stream = ExtResource("5_ghbhu")
+volume_db = -14.43
+
+[node name="SfxFail" type="AudioStreamPlayer2D" parent="ThrowHeldObject"]
+stream = ExtResource("6_dly2c")
+volume_db = -3.965
 
 [node name="CameraFollow" type="Node2D" parent="."]
 script = ExtResource("4_fupu2")
