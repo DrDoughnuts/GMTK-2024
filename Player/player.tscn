@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ck167ib0wmj7x"]
+[gd_scene load_steps=6 format=3 uid="uid://ck167ib0wmj7x"]
 
 [ext_resource type="Texture2D" uid="uid://c7ud76aq66tk5" path="res://icon.svg" id="1_ytfwu"]
 [ext_resource type="Script" path="res://GMTK-2024/Player/player_movement.gd" id="2_8h1nm"]
 [ext_resource type="Script" path="res://GMTK-2024/Player/throw_held_object.gd" id="3_3j0sv"]
+[ext_resource type="Script" path="res://GMTK-2024/Player/camera_follow.gd" id="4_fupu2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uklro"]
 radius = 30.0
@@ -10,6 +11,7 @@ height = 124.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 15
+floor_stop_on_slope = false
 floor_snap_length = 9.7
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -24,3 +26,9 @@ script = ExtResource("2_8h1nm")
 
 [node name="ThrowHeldObject" type="Node2D" parent="."]
 script = ExtResource("3_3j0sv")
+
+[node name="CameraFollow" type="Node2D" parent="."]
+script = ExtResource("4_fupu2")
+
+[node name="Camera2D" type="Camera2D" parent="CameraFollow"]
+position_smoothing_enabled = true
